@@ -26,7 +26,7 @@ $rss = new \Twisterarmy\Twister\Rss();
 
 ##### Time
 
-Convert RSS time to datetime format ([Documentation](`https://www.php.net/manual/en/datetime.format.php`))
+Convert RSS time to datetime format ([Documentation](https://www.php.net/manual/en/datetime.format.php))
 
 ###### Example
 
