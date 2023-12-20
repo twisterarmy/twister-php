@@ -111,7 +111,7 @@ class Rss
                 continue;
             }
 
-            $messages[mb_strlen($message)] = $message;
+            $messages[] = $message;
         }
 
         return $messages;
