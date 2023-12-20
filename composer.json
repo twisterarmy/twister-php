@@ -1,0 +1,12 @@
+{
+    "name": "twisterarmy/twister",
+    "description": "PHP 8 / Composer Tools for Twister API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Twisterarmy\\Twister\\": "src/"
+        }
+    },
+    "require": {}
+}
