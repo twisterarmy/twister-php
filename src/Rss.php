@@ -6,21 +6,12 @@ namespace Twisterarmy\Twister;
 
 class Rss
 {
-    private int $_length = 256;
-
-    private string $_format = '{title} {link}';
-
-    public function setLength(int $value)
-    {
-        $this->_length = $value;
-    }
-
-    public function setFormat(string $value)
-    {
-        $this->_format = $value;
-    }
-
-    public function get(string $url, array &$error = []): ?array
+    public static function feed(
+        string $url,
+        string $format = '{title}{nl}{link}',
+        int    $length = 256,
+        array &$error  = []
+    ): ?array
     {
         if (empty($url))
         {
@@ -60,13 +51,20 @@ class Rss
             return null;
         }
 
-        $messages = [];
+        $feed = [];
 
         foreach ($xml->channel->item as $item)
         {
-            if (empty($item->link))
+            if (empty($item->pubDate) || !strtotime((string) $item->pubDate))
             {
-                $error[] = _('RSS channel item does not contain link!');
+                $error[] = _('RSS channel item does not contain valid pubDate!');
+
+                continue;
+            }
+
+            if (empty($item->link) || false === (bool) filter_var((string) $item->link, FILTER_VALIDATE_URL))
+            {
+                $error[] = _('RSS channel item does not contain valid link!');
 
                 continue;
             }
@@ -77,6 +75,10 @@ class Rss
 
                 continue;
             }
+
+            $pubDate = trim(
+                (string) $item->pubDate
+            );
 
             $link = trim(
                 (string) $item->link
@@ -92,28 +94,43 @@ class Rss
 
             $message = str_replace(
                 [
+                    '{nl}',
                     '{link}',
                     '{title}',
                     // ..
                 ],
                 [
+                    PHP_EOL,
                     $link,
                     $title,
                     // ..
                 ],
-                $this->_format
+                $format
             );
 
-            if (mb_strlen($message) > $this->_length)
+            if (mb_strlen($message) > $length)
             {
                 $error[] = _('Message does not correspond twister protocol length!');
 
                 continue;
             }
 
-            $messages[] = $message;
+            $feed[] =
+            [
+                'time'    => strtotime($pubDate),
+                'message' => $message
+            ];
         }
 
-        return $messages;
+        array_multisort(
+            array_column(
+                $feed,
+                'time'
+            ),
+            SORT_ASC,
+            $feed
+        );
+
+        return $feed;
     }
 }

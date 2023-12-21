@@ -14,62 +14,32 @@ Twister client communication toolkit
 
 ### RSS
 
-RSS toolkit for twister
-
-###### Init
-
-```
-$rss = new \Twisterarmy\Twister\Rss();
-```
-
-#### Format
-
-##### Time
-
-Convert RSS time to datetime format, `U` by default
-
-[Documentation](https://www.php.net/manual/en/datetime.format.php)
-
-###### Example
-
-```
-$rss->setTimeFormat('c');
-```
-
-##### Message
-
-Convert RSS fields to twister message format, `{title} {link}` by default
-
-###### Mask
-
-* `{time}` - formatted time string by `setTimeFormat`
-* `{link}` - target link
-* `{title}` - item title
-
-###### Example
-
-```
-$rss->setMessageFormat('{title} {link}');
-```
-
-#### Length
-
-Twister protocol accept messages with 256 chars max but you can define another value.
-
-Formatted messages greater this value will be skipped from feed.
-
-##### Example
-
-```
-$rss->setLength(256);
-```
+Useful to create twister news bot
 
 #### Feed
 
-Get formatted feed array
-
-##### Example
+Read remote URL and convert response to formatted twister messages
 
 ```
-$feed = $rss->get(url);
+$array = \Twisterarmy\Twister\Rss::feed('url');
+```
+
+##### Attributes
+
+* `url` - feed address
+* `format` - `{title} {link}` by default
+  + `{nl}` - new line
+  + `{link}` - target link
+  + `{title}` - item title
+* `length` - `256` by default
+* `errors` - array of errors
+
+##### Result
+
+```
+[
+  time:    int,
+  message: string
+],
+...
 ```
