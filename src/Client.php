@@ -48,7 +48,7 @@ class Client
         );
     }
 
-    private function _exec(string $uri, string $method = 'POST', array  $data = [], array &$errors = [])
+    private function _exec(string $uri, string $method = 'POST', array $data = [], array &$errors = []): ?array
     {
         $this->_id = time();
 
@@ -93,7 +93,7 @@ class Client
         return null;
     }
 
-    public function importWallet(string $userName, string $userPrivateKey, array &$errors = [])
+    public function importWallet(string $userName, string $userPrivateKey, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -112,8 +112,8 @@ class Client
         );
     }
 
-    public function getBlockHash(int $number, array &$errors = []) {
-
+    public function getBlockHash(int $number, array &$errors = []): ?array
+    {
         return $this->_exec(
             '/',
             'POST',
@@ -130,8 +130,8 @@ class Client
         );
     }
 
-    public function getBlock(string $hash, array &$errors = []) {
-
+    public function getBlock(string $hash, array &$errors = []): ?array
+    {
         return $this->_exec(
             '/',
             'POST',
@@ -148,7 +148,7 @@ class Client
         );
     }
 
-    public function getPosts(array $userNames, int $limit, array &$errors = [])
+    public function getPosts(array $userNames, int $limit, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -167,7 +167,7 @@ class Client
         );
     }
 
-    public function follow(string $userName, array $userNames, array &$errors = [])
+    public function follow(string $userName, array $userNames, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -186,7 +186,7 @@ class Client
         );
     }
 
-    public function unFollow(string $userName, array $userNames, array &$errors = [])
+    public function unFollow(string $userName, array $userNames, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -205,7 +205,7 @@ class Client
         );
     }
 
-    public function getFollowing(string $userName, array &$errors = [])
+    public function getFollowing(string $userName, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -223,7 +223,7 @@ class Client
         );
     }
 
-    public function getDHTProfileRevisions(string $userName, array &$errors = [])
+    public function getDHTProfileRevisions(string $userName, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -243,7 +243,7 @@ class Client
         );
     }
 
-    public function getDHTAvatarRevisions(string $userName, array &$errors = [])
+    public function getDHTAvatarRevisions(string $userName, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -263,7 +263,7 @@ class Client
         );
     }
 
-    public function putDHT(string $peerAlias, string $command, string $flag /*s(ingle)/m(ulti) mixed*/, $value, string $sig_user, int $seq, array &$errors = [])
+    public function putDHT(string $peerAlias, string $command, string $flag /*s(ingle)/m(ulti) mixed*/, $value, string $sig_user, int $seq, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -285,7 +285,7 @@ class Client
         );
     }
 
-    public function createWalletUser(string $userName, array &$errors = [])
+    public function createWalletUser(string $userName, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -303,7 +303,7 @@ class Client
         );
     }
 
-    public function sendNewUserTransaction(string $userName, array &$errors = [])
+    public function sendNewUserTransaction(string $userName, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -321,7 +321,7 @@ class Client
         );
     }
 
-    public function newPostMessage(string $userName, int $k, string $message, array &$errors = [])
+    public function newPostMessage(string $userName, int $k, string $message, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -341,7 +341,7 @@ class Client
         );
     }
 
-    public function newRetwistMessage(string $userName, int $k, string $sigUserPost, array $userPost, string $comment, array &$errors = [])
+    public function newRetwistMessage(string $userName, int $k, string $sigUserPost, array $userPost, string $comment, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
