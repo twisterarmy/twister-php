@@ -12,6 +12,18 @@ PHP 8 / Composer Tools for Twister API
 
 Twister client communication toolkit
 
+```
+$client = new \Twisterarmy\Twister\Client('http', 'localhost', 28332, 'user', 'pwd');
+
+var_dump(
+    $client->getPosts(
+      [
+        'twisterarmy'
+      ]
+    )
+);
+```
+
 #### Methods
 
 Currently not documented, please visit src/Client.php for details
