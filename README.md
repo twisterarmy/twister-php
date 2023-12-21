@@ -24,7 +24,7 @@ Read remote URL and convert response to formatted twister messages
 $array = \Twisterarmy\Twister\Rss::feed('url');
 ```
 
-##### Attributes
+##### Request
 
 * `url` - feed address
 * `format` - `{title} {link}` by default
@@ -34,7 +34,7 @@ $array = \Twisterarmy\Twister\Rss::feed('url');
 * `length` - `256` by default
 * `errors` - array of errors
 
-##### Result
+##### Response
 
 ```
 [
