@@ -37,9 +37,7 @@ Useful to create twister news bot
 
 #### Methods
 
-* feed
-
-#### Feed
+##### Feed
 
 Read remote URL and convert response to formatted twister messages
 
@@ -47,7 +45,7 @@ Read remote URL and convert response to formatted twister messages
 $array = \Twisterarmy\Twister\Rss::feed('url');
 ```
 
-##### Request
+###### Request
 
 * `url` - feed address
 * `format` - `{title} {link}` by default
@@ -57,7 +55,7 @@ $array = \Twisterarmy\Twister\Rss::feed('url');
 * `length` - `256` by default
 * `errors` - array of errors
 
-##### Response
+###### Response
 
 ```
 [
