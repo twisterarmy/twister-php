@@ -36,7 +36,7 @@ $rss->setTimeFormat('c');
 
 ##### Message
 
-Convert RSS fields to twister message format
+Convert RSS fields to twister message format, `{title} {link}` by default
 
 ###### Mask
 
