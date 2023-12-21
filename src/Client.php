@@ -8,8 +8,6 @@ class Client
 {
     private Curl $_curl;
 
-    private int $_id = 0;
-
     private string $_url;
 
     public function __construct(
@@ -55,8 +53,6 @@ class Client
 
     private function _exec(string $uri, string $method = 'POST', array $data = [], array &$errors = []): ?array
     {
-        $this->_id = time();
-
         curl_setopt(
             $this->_curl,
             CURLOPT_URL,
@@ -90,7 +86,7 @@ class Client
 
         else
         {
-            $errors[$this->_id][] = curl_error(
+            $errors[] = curl_error(
                 $this->_curl
             );
         }
@@ -111,7 +107,7 @@ class Client
                     $userPrivateKey,
                     $userName
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -129,7 +125,7 @@ class Client
                 [
                     $number
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -147,7 +143,7 @@ class Client
                 [
                     $hash
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -166,7 +162,7 @@ class Client
                     $limit,
                     $data
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -185,7 +181,7 @@ class Client
                     $userName,
                     $userNames
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -204,7 +200,7 @@ class Client
                     $userName,
                     $userNames
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -222,7 +218,7 @@ class Client
                 [
                     $userName
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -242,7 +238,7 @@ class Client
                     'profile',
                     's'
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -262,7 +258,7 @@ class Client
                     'avatar',
                     's'
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -284,7 +280,7 @@ class Client
                 $sig_user,
                 $seq,
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -302,7 +298,7 @@ class Client
                 [
                     $userName
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -320,7 +316,7 @@ class Client
                 [
                     $userName
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -340,7 +336,7 @@ class Client
                     $k,
                     $message
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
@@ -364,7 +360,7 @@ class Client
                     ],
                     $comment
                 ],
-                'id' => $this->_id
+                'id' => time()
             ],
             $errors
         );
