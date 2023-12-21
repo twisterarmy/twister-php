@@ -1,6 +1,6 @@
 # twister-php
 
-PHP 8 / Composer Tools for Twister API
+PHP 8 / Composer Library for Twister P2P
 
 ## Install
 
