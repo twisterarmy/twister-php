@@ -20,7 +20,12 @@ class Client
         string $password
     )
     {
-        $this->_url = $this->_protocol . '://' . $this->_host . ':' . $this->_port;
+        $this->_url = sprintf(
+            '%s://%s:%s',
+            $protocol,
+            $host,
+            $port
+        );
 
         $this->_curl = curl_init();
 
