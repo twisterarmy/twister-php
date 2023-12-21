@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Twisterarmy\Twister;
+namespace Twisterarmy\Twister\Tools;
 
 class Rss
 {

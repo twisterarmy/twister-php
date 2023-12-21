@@ -43,18 +43,18 @@ Currently not documented, please visit src/Client.php for details
 * newPostMessage
 * newRetwistMessage
 
-### RSS
+### Tools
+
+#### RSS
 
 Useful to create twister news bot
-
-#### Methods
 
 ##### Feed
 
 Read remote URL and convert response to formatted twister messages
 
 ```
-$array = \Twisterarmy\Twister\Rss::feed('url');
+$array = \Twisterarmy\Twister\Tools\Rss::feed('url');
 ```
 
 ###### Request
