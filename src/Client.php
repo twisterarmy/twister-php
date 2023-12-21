@@ -149,7 +149,7 @@ class Client
         );
     }
 
-    public function getPosts(array $userNames, int $limit, array &$errors = []): ?array
+    public function getPosts(array $userNames, int $limit = 20, array &$errors = []): ?array
     {
         $data = [];
 
