@@ -6,7 +6,7 @@ namespace Twisterarmy\Twister;
 
 class Client
 {
-    private Curl $_curl;
+    private $_curl;
 
     private string $_url;
 
