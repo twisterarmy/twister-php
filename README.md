@@ -26,7 +26,9 @@ $rss = new \Twisterarmy\Twister\Rss();
 
 ##### Time
 
-Convert RSS time to datetime format ([Documentation](https://www.php.net/manual/en/datetime.format.php))
+Convert RSS time to datetime format, `U` by default
+
+[Documentation](https://www.php.net/manual/en/datetime.format.php)
 
 ###### Example
 
@@ -40,7 +42,7 @@ Convert RSS fields to twister message format, `{title} {link}` by default
 
 ###### Mask
 
-* `{time}` - formatted time string by `setTimeFormat`, `U` by default
+* `{time}` - formatted time string by `setTimeFormat`
 * `{link}` - target link
 * `{title}` - item title
 
