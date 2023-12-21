@@ -90,7 +90,7 @@ class Client
 
         else
         {
-            $errors[] = curl_error(
+            $errors[$this->_id][] = curl_error(
                 $this->_curl
             );
         }
