@@ -12,9 +12,32 @@ PHP 8 / Composer Tools for Twister API
 
 Twister client communication toolkit
 
+#### Methods
+
+Currently not documented, please visit src/Client.php for details
+
+* importWallet
+* getBlockHash
+* getBlock
+* getPosts
+* follow
+* unFollow
+* getFollowing
+* getDHTProfileRevisions
+* getDHTAvatarRevisions
+* putDHT
+* createWalletUser
+* sendNewUserTransaction
+* newPostMessage
+* newRetwistMessage
+
 ### RSS
 
 Useful to create twister news bot
+
+#### Methods
+
+* feed
 
 #### Feed
 
