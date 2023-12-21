@@ -29,8 +29,8 @@ $array = \Twisterarmy\Twister\Rss::feed('url');
 * `url` - feed address
 * `format` - `{title} {link}` by default
   + `{nl}` - new line
-  + `{link}` - target link
   + `{title}` - item title
+  + `{link}` - target link
 * `length` - `256` by default
 * `errors` - array of errors
 
