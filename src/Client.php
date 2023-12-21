@@ -151,6 +151,16 @@ class Client
 
     public function getPosts(array $userNames, int $limit, array &$errors = []): ?array
     {
+        $data = [];
+
+        foreach ($userNames as $userName)
+        {
+            $data[] =
+            [
+                'username' => $userName
+            ];
+        }
+
         return $this->_exec(
             '/',
             'POST',
