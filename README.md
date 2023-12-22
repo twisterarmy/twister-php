@@ -32,6 +32,7 @@ Currently not documented, please visit src/Client.php for details
 * getBlockHash
 * getBlock
 * getPosts
+* getPostK
 * follow
 * unFollow
 * getFollowing

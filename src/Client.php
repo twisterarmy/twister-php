@@ -332,7 +332,7 @@ class Client
         );
     }
 
-    public function newPostMessage(string $userName, int $k, string $message, array &$errors = []): ?array
+    public function newPostMessage(string $userName, string $message, ?int $k = null, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -343,7 +343,7 @@ class Client
                 'params'  =>
                 [
                     $userName,
-                    $k,
+                    $this->getPostK($userName, $k),
                     $message
                 ],
                 'id' => time()
@@ -352,7 +352,7 @@ class Client
         );
     }
 
-    public function newRetwistMessage(string $userName, int $k, string $sigUserPost, array $userPost, string $comment, array &$errors = []): ?array
+    public function newRetwistMessage(string $userName, string $sigUserPost, array $userPost, string $comment, ?int $k = null, array &$errors = []): ?array
     {
         return $this->_exec(
             '/',
@@ -363,7 +363,7 @@ class Client
                 'params'  =>
                 [
                     $userName,
-                    $k,
+                    $this->getPostK($userName, $k),
                     [
                         'sig_userpost' => $sigUserPost,
                         'userpost'     => $userPost,
@@ -374,5 +374,20 @@ class Client
             ],
             $errors
         );
+    }
+
+    public function getPostK(string $userName, ?int $k = null): ?int
+    {
+        if (is_null($k))
+        {
+            if (null === $posts = $this->getPosts([$userName], 1))
+            {
+                return null;
+            }
+
+            return isset($posts['result'][0]['userpost']['k']) ? (int) $posts['result'][0]['userpost']['k'] + 1 : 1;
+        }
+
+        return $k;
     }
 }
